@@ -1,12 +1,33 @@
 <div id="container">
-  <strong>{{ name }}</strong>
-  <p>
-    Explore
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://ionicframework.com/docs/components"
-      >UI Components</a
-    >
-  </p>
+  <ion-accordion-group #accordionGroup multiple="true" [value]="['first', 'second']">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Primerio item do acordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Primeiro conteudo em Ionic</div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Segundo item do acordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Segundo conteudo em Ionic</div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Terceiro Item do accordion 22222222</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Terceiro conteudo em Ionic</div>
+    </ion-accordion>
+  </ion-accordion-group>
+  <br>
+  <ion-button (click)="clicarBotao()">Clique aqui!</ion-button>
+<!--  <strong>{{ name }}</strong>-->
+<!--  <p>-->
+<!--    Explore-->
+<!--    <a-->
+<!--      target="_blank"-->
+<!--      rel="noopener noreferrer"-->
+<!--      href="https://ionicframework.com/docs/components"-->
+<!--      >UI Components</a>-->
+<!--  </p>-->
 </div>
