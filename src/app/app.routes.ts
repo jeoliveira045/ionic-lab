@@ -7,6 +7,10 @@ export const routes: Routes = [
   // }
   {
     path: '',
-    loadComponent: () => import('./sidebar/sidebar.page').then(m => m.SidebarPage)
-  }
+    loadComponent: () => import('./manga-detail/lab').then(m => m.LabNavComponent)
+  },
+  // {
+  //   path: 'manga/detail/:id',
+  //   loadComponent: () => import('./manga-detail/manga-detail.page').then(m => m.MangaDetailPage)
+  // }
 ];

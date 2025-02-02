@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import {SidebarPage} from "./sidebar.page";
 // import { TabsPage } from './tabs.page';
 
-export const routes: Routes = [
+export const  routes: Routes = [
   {
     path: 'sidebar',
     component: SidebarPage,
