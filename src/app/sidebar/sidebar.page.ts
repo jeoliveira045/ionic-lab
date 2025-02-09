@@ -67,13 +67,8 @@ export class SidebarPage{
     mangaService.getMangaList(this.page).subscribe((res: any) => {
       this.mangalist = this.groupMangas(res.data)
     })
-    // StatusBar.setOverlaysWebView({overlay: false})
-    console.log(this.mangalist)
+    StatusBar.setOverlaysWebView({overlay: false})
   }
-  //
-  // navigateToMangaDetail(id?: string){
-  //   this.navController.navigateRoot(`/manga/detail/${id}`)
-  // }
 
   getMoreMangas() {
     this.page++;

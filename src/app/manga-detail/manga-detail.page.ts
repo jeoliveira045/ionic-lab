@@ -1,12 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonBackButton,
+  IonBackButton, IonButton,
   IonButtons,
   IonContent,
-  IonHeader,
-  IonNav,
+  IonHeader, IonItem, IonLabel,
+  IonNav, IonText,
   IonTitle,
   IonToolbar, NavParams
 } from '@ionic/angular/standalone';
@@ -38,26 +38,25 @@ export class MangaDetail{
   templateUrl: './manga-detail.page.html',
   styleUrls: ['./manga-detail.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons, IonItem, IonLabel, IonText]
 })
-export class MangaDetailPage {
+export class MangaDetailPage implements AfterContentInit{
 
   @Input()
   mangaId?: string
 
   mangaDetail?: MangaDetail
 
-  // chaptersList?: any[]
-
   constructor(
     protected mangaService: MangaService,
-    protected navParams: NavParams
   ) {
-    this.mangaService.getManga((navParams.data as any).mangaId).subscribe(res => {
+    addIcons({ caretBack });
+  }
+
+  ngAfterContentInit() {
+    this.mangaService.getManga(this.mangaId!).subscribe(res => {
       this.mangaDetail = res.data
     })
-    addIcons({ caretBack });
-
   }
 
 

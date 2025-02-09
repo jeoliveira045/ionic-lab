@@ -12,23 +12,23 @@
     <ion-grid>
       <ion-row *ngFor="let item of mangalist">
         <ion-col size="6">
-          <ion-nav-link router-direction="forward" [componentProps]="{mangaId: item[0].id}" [component]="component">
+          <ion-nav-link router-direction="forward" [componentProps]="{'mangaId': item[0]?.id}" [component]="component">
             <ion-card>
-              <img class="image-size" [src]="item[0].thumb">
+              <img class="image-size" [src]="item[0]?.thumb">
               <ion-card-header>
-                <ion-card-title class="card-title-ellipsis">{{item[0].title}}</ion-card-title>
-                <ion-card-subtitle class="card-subtitle-ellipsis">{{item[0].genres}}</ion-card-subtitle>
+                <ion-card-title class="card-title-ellipsis">{{item[0]?.title}}</ion-card-title>
+                <ion-card-subtitle class="card-subtitle-ellipsis">{{item[0]?.genres}}</ion-card-subtitle>
               </ion-card-header>
             </ion-card>
           </ion-nav-link>
         </ion-col>
         <ion-col size="6">
-          <ion-nav-link router-direction="forward" [componentProps]="{mangaId: item[1].id}" [component]="component">
+          <ion-nav-link router-direction="forward" [componentProps]="{'mangaId': item[1]?.id}" [component]="component">
             <ion-card>
-              <img class="image-size" [src]="item[1].thumb">
+              <img class="image-size" [src]="item[1]?.thumb">
               <ion-card-header>
-                <ion-card-title class="card-title-ellipsis">{{item[1].title}}</ion-card-title>
-                <ion-card-subtitle class="card-subtitle-ellipsis">{{item[1].genres}}</ion-card-subtitle>
+                <ion-card-title class="card-title-ellipsis">{{item[1]?.title}}</ion-card-title>
+                <ion-card-subtitle class="card-subtitle-ellipsis">{{item[1]?.genres}}</ion-card-subtitle>
               </ion-card-header>
             </ion-card>
           </ion-nav-link>
