@@ -26,5 +26,9 @@ export class MangaService{
     return this.httpClient.get(`${this.URL_API!}/chapter?id=${id}`)
   }
 
+  getMangaChapterImages(id: string): Observable<any>{
+    return this.httpClient.get(`${this.URL_API!}/image?id=${id}`)
+  }
+
 
 }

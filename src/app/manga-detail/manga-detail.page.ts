@@ -5,8 +5,8 @@ import {
   IonBackButton, IonButton,
   IonButtons,
   IonContent,
-  IonHeader, IonItem, IonLabel,
-  IonNav, IonText,
+  IonHeader, IonItem, IonLabel, IonList, IonListHeader,
+  IonNav, IonNavLink, IonText,
   IonTitle,
   IonToolbar, NavParams
 } from '@ionic/angular/standalone';
@@ -14,6 +14,7 @@ import {ActivatedRoute} from "@angular/router";
 import {MangaService} from "../services/manga.service";
 import {addIcons} from "ionicons";
 import { caretBack } from 'ionicons/icons';
+import {MangaChapterImagesPage} from "../manga-chapter-images/manga-chapter-images.page";
 //
 export class MangaDetail{
   id?: string
@@ -29,8 +30,14 @@ export class MangaDetail{
   total_chapter?: number
   type?: string
   update_at?: string
+}
 
-
+export class MangaChapterDetail{
+  id?: string;
+  manga?: string;
+  title?: string;
+  created_at?: number;
+  updated_at?: number;
 }
 
 @Component({
@@ -38,7 +45,7 @@ export class MangaDetail{
   templateUrl: './manga-detail.page.html',
   styleUrls: ['./manga-detail.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons, IonItem, IonLabel, IonText]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonButtons, IonItem, IonLabel, IonText, IonList, IonNavLink]
 })
 export class MangaDetailPage implements AfterContentInit{
 
@@ -46,6 +53,10 @@ export class MangaDetailPage implements AfterContentInit{
   mangaId?: string
 
   mangaDetail?: MangaDetail
+
+  mangaChaptersList?: Array<MangaChapterDetail> = new Array<MangaChapterDetail>()
+
+  mangaChapterImagesComponent = MangaChapterImagesPage
 
   constructor(
     protected mangaService: MangaService,
@@ -56,6 +67,9 @@ export class MangaDetailPage implements AfterContentInit{
   ngAfterContentInit() {
     this.mangaService.getManga(this.mangaId!).subscribe(res => {
       this.mangaDetail = res.data
+    })
+    this.mangaService.getMangaChapters(this.mangaId!).subscribe((res: any) => {
+      this.mangaChaptersList = [...res.data]
     })
   }
 

@@ -33,5 +33,15 @@
         <ion-text><b>Summary</b>: {{mangaDetail?.summary}}</ion-text>
       </p>
     </div>
+    @if(!!mangaChaptersList){
+      <ion-title>Chapters list</ion-title>
+    <ion-list>
+      @for(item of mangaChaptersList; track item; let index = $index){
+        <ion-nav-link router-direction="forward" [component]="mangaChapterImagesComponent" [componentProps]="{chapterId: item?.id}">
+            <ion-item>{{item.title}}</ion-item>
+        </ion-nav-link>
+      }
+    </ion-list>
+    }
   }
 </ion-content>

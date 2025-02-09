@@ -14,7 +14,7 @@ export class AuthInterceptorService implements HttpInterceptor{
     const clonedReq = req.clone({
       setHeaders: {
         "x-rapidapi-host":"mangaverse-api.p.rapidapi.com",
-        "x-rapidapi-key":"90b8387a0bmshaf009bcb8dab315p1e2442jsnb5022b570294"
+        "x-rapidapi-key":"16368228ddmsh46d9e2cbb67c9a5p175e79jsn929dbf4d99f7"
       }
     })
     return next.handle(clonedReq);

@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="caret-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>manga-chapter-images</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if(!!chapterImagesList){
+    @for(image of chapterImagesList; track image; let index = $index){
+      <img [src]="image?.link">
+    }
+  }
+</ion-content>
